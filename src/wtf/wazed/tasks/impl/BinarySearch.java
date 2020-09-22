@@ -12,23 +12,27 @@ public class BinarySearch extends GenericTask {
 
     @Override
     public void execute() {
-        System.out.println(binarySearch(20, 0, nums.length));
+        System.out.println(binarySearchOutline(20));
     }
 
-    public int binarySearch(int searching, int left, int right) {
+    public int binarySearchOutline(int searching){
+        return binarySearch(nums, searching,0,nums.length);
+    }
+
+    public int binarySearch(int[] a,int searching, int left, int right) {
         if (right >= left) {
             int mid = left + (right - left) / 2;
 
             //Ist das Element an Stelle der aktuellen Mitte
-            if (nums[mid] == searching)
+            if (a[mid] == searching)
                 return mid;
 
             //Wenn Zahl an der Stelle mid kleiner als die gesuchte Zahl setze rechte Grenze auf mid-1
-            if (nums[mid] > searching)
-                return binarySearch(searching, left, mid - 1);
+            if (a[mid] > searching)
+                return binarySearch(a,searching, left, mid - 1);
 
             //Wenn nicht, dann setze linke Grenze auf mid+1
-            return binarySearch(searching, mid + 1, right);
+            return binarySearch(a,searching, mid + 1, right);
         }
 
         // Wenn die Zahl nicht gefunden wird, dann gib -1 zurück
