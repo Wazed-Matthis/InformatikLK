@@ -9,8 +9,8 @@ import wtf.wazed.tasks.GenericTask;
 public class Factorial extends GenericTask {
     @Override
     public void execute() {
-        System.out.println(factorialRecursive(10));
-        System.out.println(factorialIterative(10));
+       /* System.out.println(factorialRecursive(5));
+        System.out.println(factorialIterative(5));*/
     }
 
     /**
@@ -23,7 +23,7 @@ public class Factorial extends GenericTask {
         for(int i = n; i > 1; i--){
             temp = temp * i;
         }
-        return (n == 0 || n == 1) ? 1 : temp;
+        return (n <= 1) ? 1 : temp;
     }
 
     /**
@@ -32,6 +32,6 @@ public class Factorial extends GenericTask {
      * @return the factorial of(n)
      */
     public int factorialRecursive(int n) {
-        return (n == 0 || n == 1) ? 1 : n * factorialRecursive(n - 1);
+        return (n <= 1) ? 1 : n * factorialRecursive(n - 1);
     }
 }
