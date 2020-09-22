@@ -14,7 +14,7 @@ public class Factorial extends GenericTask {
     }
 
     /**
-     * Recursive Factorial of n
+     * Iterative Factorial of n
      * @param n
      * @return the factorial of(n)
      */
