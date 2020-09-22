@@ -12,7 +12,7 @@ public class BinarySearch extends GenericTask {
 
     @Override
     public void execute() {
-        System.out.println(binarySearchOutline(20));
+        //System.out.println(binarySearchOutline(nums, 20));
     }
 
     /**
@@ -20,8 +20,8 @@ public class BinarySearch extends GenericTask {
      * @param searching
      * @return
      */
-    public int binarySearchOutline(int searching){
-        return binarySearch(nums, searching,0,nums.length);
+    public int binarySearchOutline(int[] a, int searching){
+        return binarySearch(a, searching,0,nums.length - 1);
     }
 
     /**
