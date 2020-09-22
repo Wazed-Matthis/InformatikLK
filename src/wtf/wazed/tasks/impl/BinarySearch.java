@@ -15,10 +15,23 @@ public class BinarySearch extends GenericTask {
         System.out.println(binarySearchOutline(20));
     }
 
+    /**
+     * Rahmenfunktion für binäre Suche
+     * @param searching
+     * @return
+     */
     public int binarySearchOutline(int searching){
         return binarySearch(nums, searching,0,nums.length);
     }
 
+    /**
+     *
+     * @param a das array in dem gesucht wird
+     * @param searching die Zahl die gesucht wird
+     * @param left die linke Grenze des Suchbereichs (wichtig für Rekursion)
+     * @param right die rechte Grenze des suchbereichs (wichtig für Rekursion)
+     * @return den index der gesuchten Zahl
+     */
     private int binarySearch(int[] a,int searching, int left, int right) {
         if (right >= left) {
             int mid = left + (right - left) / 2;
