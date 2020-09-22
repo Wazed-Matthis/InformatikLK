@@ -19,7 +19,7 @@ public class BinarySearch extends GenericTask {
         return binarySearch(nums, searching,0,nums.length);
     }
 
-    public int binarySearch(int[] a,int searching, int left, int right) {
+    private int binarySearch(int[] a,int searching, int left, int right) {
         if (right >= left) {
             int mid = left + (right - left) / 2;
 
