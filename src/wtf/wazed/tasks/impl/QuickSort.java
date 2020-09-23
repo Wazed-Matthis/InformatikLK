@@ -27,6 +27,12 @@ public class QuickSort extends GenericTask {
         quickSortIterativeInline(a, 0, a.length - 1);
     }
 
+    /**
+     * Quicksort algorithm in iterative Version
+     * @param a
+     * @param low
+     * @param high
+     */
     private void quickSortIterativeInline(int[] a, int low, int high) {
 
         // Erstelle SortierStack in dem gearbeitet wird
