@@ -10,16 +10,56 @@ import java.util.Arrays;
  */
 public class QuickSort extends GenericTask {
 
-    int[] nums = new int[]{1,23,24,634,7,124,2,427,35,7,235,3,6,24,72,47};
+    int[] nums = new int[]{1, 23, 24, 634, 7, 124, 2, 427, 35, 7, 235, 3, 6, 24, 72, 47};
 
     @Override
     public void execute() {
-        quickSort(nums);
+        System.out.println(nums.length);
+        quickSortIterative(nums);
         System.out.println(Arrays.toString(nums));
     }
 
-    public void quickSort(int[] a){
-        quickSortInline(a, 0, a.length-1);
+    public void quickSort(int[] a) {
+        quickSortInline(a, 0, a.length - 1);
+    }
+
+    public void quickSortIterative(int[] a) {
+        quickSortIterativeInline(a, 0, a.length - 1);
+    }
+
+    private void quickSortIterativeInline(int[] a, int low, int high) {
+
+        // Erstelle SortierStack in dem gearbeitet wird
+        final int[] sortingStack = new int[high - low + 1];
+
+        // Initialisiere die obere Grenze des Arrays
+        int topIndex = -1;
+
+        //Schiebe die originalen Werte von low und high in den Stack
+        sortingStack[++topIndex] = low;
+        sortingStack[++topIndex] = high;
+
+        //Gehe weiter solange der stack nicht leer ist
+        while (topIndex >= 0) {
+
+            //Nehme neuen Wert von low und high aus dem Stack
+            high = sortingStack[topIndex--];
+            low = sortingStack[topIndex--];
+
+            //Setze den pivotPoint
+            int pivotPoint = partition(a, low, high);
+
+            //Wenn Elemente links vom PivotPoint sind, dann Pushe sie nach ganz oben
+            if (pivotPoint - 1 > low) {
+                sortingStack[++topIndex] = low;
+                sortingStack[++topIndex] = pivotPoint - 1;
+            }
+            //Wenn Elemente rechts vom PivotPoint sind, dann Pushe sie nach ganz unten
+            if (pivotPoint + 1 < high) {
+                sortingStack[++topIndex] = pivotPoint + 1;
+                sortingStack[++topIndex] = high;
+            }
+        }
     }
 
     private void quickSortInline(int[] a, int low, int high) {
@@ -41,7 +81,7 @@ public class QuickSort extends GenericTask {
         }
         swap(a, i + 1, high);
 
-        return i+1;
+        return i + 1;
     }
 
     private void swap(int[] a, int index, int index1) {
