@@ -14,9 +14,9 @@ public class QuickSort extends GenericTask {
 
     @Override
     public void execute() {
-        System.out.println(nums.length);
+        /*System.out.println(nums.length);
         quickSortIterative(nums);
-        System.out.println(Arrays.toString(nums));
+        System.out.println(Arrays.toString(nums));*/
     }
 
     public void quickSort(int[] a) {
